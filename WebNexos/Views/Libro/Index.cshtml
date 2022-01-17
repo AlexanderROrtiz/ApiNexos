@@ -1,0 +1,87 @@
+﻿@model IEnumerable<WebNexos.Entitys.LibroEntity>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<center> <h1 class="modal-title" id="exampleModalLabel">Registros Libro</h1></center>
+
+<div class="form-group">
+    <input type="text" class="form-control pull-right" style="width:20%" id="search" placeholder="Type to search table...">
+    <a href="Libro/Create" class="btn btn-primary">Crear Libro</a>
+</div>
+
+
+<table class="table" id="mytable">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdLibro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Anio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Genero)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Numeropaginas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdAutor)
+        </th>
+        <th></th>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdLibro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Anio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Numeropaginas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdAutor)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.IdLibro }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.IdLibro },
+                new { onclick = "return confirm('¿Seguro que quiere Eliminar el Registro " + item.IdLibro + "?')" })
+
+            </td>
+        </tr>
+    }
+
+</table>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script>
+    // Write on keyup event of keyword input element
+    $(document).ready(function () {
+        $("#search").keyup(function () {
+            _this = this;
+            // Show only matching TR, hide rest of them
+            $.each($("#mytable tbody tr"), function () {
+                if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+                    $(this).hide();
+                else
+                    $(this).show();
+            });
+        });
+    });
+
+</script>

@@ -1,0 +1,62 @@
+﻿@model WebNexos.Entitys.AutorEntity
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h3>¿Esta seguro de eliminar el registro?</h3>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdAutor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdAutor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombrecompleto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombrecompleto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fechanacimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fechanacimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ciudadprocedencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ciudadprocedencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Correo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Correo)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-primary" /> |
+            <a href="/Autor" type="button" class="btn btn-primary">Cancelar</a>
+        </div>
+    }
+</div>

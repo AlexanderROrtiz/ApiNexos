@@ -1,0 +1,72 @@
+﻿@model WebNexos.Entitys.LibroEntity
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h3>¿Esta seguro de eliminar el registro?</h3>
+
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdLibro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdLibro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Titulo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Anio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Anio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Genero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genero)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Numeropaginas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Numeropaginas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdAutor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdAutor)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+       <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-primary" /> |
+            <a href="/Libro" type="button" class="btn btn-primary">Cancelar</a>
+       </div>
+    }
+</div>
